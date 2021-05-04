@@ -27,7 +27,7 @@ class _IndiaPageState extends State<IndiaPage> {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.23,
+              height: MediaQuery.of(context).size.height * 0.18,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
