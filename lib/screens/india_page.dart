@@ -1,57 +1,39 @@
-import 'package:covid_tracker_api/screens/india_page.dart';
+import 'package:covid_tracker_api/screens/indiadatasource.dart';
 import 'package:covid_tracker_api/screens/worlddatasource.dart';
 import 'package:flutter/material.dart';
 
-import 'india_page.dart';
-
-class HomeScreen extends StatefulWidget {
+class IndiaPage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _IndiaPageState createState() => _IndiaPageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  bool counts = true;
+class _IndiaPageState extends State<IndiaPage> {
+  bool countsr = true;
 
   void changeColor() {
     setState(() {
-      counts = !counts;
+      countsr = !countsr;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => IndiaPage()));
-                  },
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    padding: EdgeInsets.fromLTRB(0, 10, 20, 0),
-                    child: Image.network(
-                        "https://disease.sh/assets/img/flags/in.png"),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(
-              height: (MediaQuery.of(context).size.height * 0.2) - 90,
+              height: MediaQuery.of(context).size.height * 0.23,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  'Stats: Worldwide',
+                  'Stats: India',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
@@ -61,10 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: changeColor,
                   icon: Icon(
                     Icons.brush,
-                    color: !counts ? Colors.pink[100] : Colors.blue[100],
+                    color: !countsr ? Colors.orange[100] : Colors.green[100],
                     size: 25,
                   ),
-                  label: Text(''),
+                  label: Text(
+                    '.',
+                    style: TextStyle(color: Colors.black),
+                  ),
                   color: Colors.black,
                 ),
               ],
@@ -78,13 +63,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   // color: counts ? Colors.white : Colors.red,
-                  gradient: counts
+                  gradient: countsr
                       ? LinearGradient(colors: [
-                          Colors.green[100],
-                          Colors.purple[100],
+                          Colors.orange[200],
+                          Colors.white,
+                          Colors.blue[100],
+                          Colors.white,
+                          Colors.green[200],
                         ])
                       : LinearGradient(colors: [
-                          Colors.cyan[100],
+                          Colors.yellow[200],
+                          Colors.teal[100],
                           Colors.purple[50],
                         ]),
                   borderRadius: BorderRadius.circular(100),
@@ -92,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(50, 50, 30, 0),
-                  child: WorldDataSource(),
+                  child: IndiaDetails(),
                 ),
               ),
             ),

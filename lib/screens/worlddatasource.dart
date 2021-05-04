@@ -22,14 +22,14 @@ class _WorldDataSourceState extends State<WorldDataSource> {
       padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
       child: Row(
         children: [
-          Text(
+          SelectableText(
             "$parameter :",
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             width: 10,
           ),
-          Text(
+          SelectableText(
             numberOfIt,
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.w400),
           ),
