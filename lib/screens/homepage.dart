@@ -1,6 +1,8 @@
 import 'package:covid_tracker_api/screens/datasource.dart';
 import 'package:flutter/material.dart';
 
+import 'india_details.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -20,10 +22,29 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => IndiaDetails()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    padding: EdgeInsets.fromLTRB(0, 10, 20, 0),
+                    child: Image.network(
+                        "https://disease.sh/assets/img/flags/in.png"),
+                  ),
+                ),
+              ],
+            ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: (MediaQuery.of(context).size.height * 0.2) - 90,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -38,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 FlatButton.icon(
                   onPressed: changeColor,
                   icon: Icon(
-                    Icons.edit,
+                    Icons.brush,
                     color: !counts ? Colors.pink[100] : Colors.blue[100],
                     size: 25,
                   ),
@@ -62,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Colors.purple[100],
                         ])
                       : LinearGradient(colors: [
-                          Colors.cyan[200],
+                          Colors.cyan[100],
                           Colors.purple[50],
                         ]),
                   borderRadius: BorderRadius.circular(100),
