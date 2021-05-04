@@ -59,8 +59,8 @@ class _IndiaPageState extends State<IndiaPage> {
             ),
             Center(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.45,
-                width: MediaQuery.of(context).size.width * 0.9,
+                height: 330,
+                width: MediaQuery.of(context).size.width * 0.95,
                 decoration: BoxDecoration(
                   // color: counts ? Colors.white : Colors.red,
                   gradient: countsr
@@ -80,7 +80,7 @@ class _IndiaPageState extends State<IndiaPage> {
                 ),
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(50, 50, 30, 0),
+                  padding: const EdgeInsets.fromLTRB(45, 50, 30, 0),
                   child: IndiaDetails(),
                 ),
               ),
