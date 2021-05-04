@@ -16,6 +16,9 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    WidgetsFlutterBinding.ensureInitialized();
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     super.initState();
   }
 
