@@ -1,6 +1,8 @@
 # Covid Stats Tracker
 This application tracks covid stats - India and worldwide.<br />
 
+# API URL: <br />
+https://corona.lmao.ninja/
 
 # Screenshots <br />
 ![Screenshot 1](https://github.com/codedog001/covid_stats_tracker_flutter/blob/main/screenshots/Images2.jpeg?raw=true) <br />
